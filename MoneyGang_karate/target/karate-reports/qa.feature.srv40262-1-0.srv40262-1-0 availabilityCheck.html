@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <title>qa.feature.srv40262-1-0.srv40262-1-0 availabilityCheck</title>  
+  </head>
+  <body>   
+    <div id="root-container">
+      <div id="leftnav">
+                
+        <div>
+  <div class="nav-logo">
+    <a href="karate-summary.html">
+      <img src="karate-logo.svg" alt="Karate"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">3</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>         
+  <div id="nav-date">
+    <div>2022-03-22 10:51:11 a. m.</div>
+  </div>        
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:8]"><span>[1:8]</span> <span>Validacion estatus code 200</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2:22]"><span>[2:22]</span> <span>Validacion tipo dato response con estatus code 200</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3:103]"><span>[3:103]</span> <span>Validacion codigo 400 campo AddrId vacio</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">qa/feature/srv40262-1-0/srv40262-1-0 availabilityCheck.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">Test srv40262-1-0 - availabilityCheck</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:8]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:8]</span>
+                <span class="scenario-name">Validacion estatus code 200</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>805</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:8]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:8]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.6">10:51:10.649 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref passed">9</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.9">{
+&quot;addrId&quot;: &quot;211215105969782020&quot;,
+&quot;prodInstId&quot;: &quot;&quot;,
+&quot;spId&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.17">
+      <div class="step-ref passed">17</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">802</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.17">10:51:10.652 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 57
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;addrId&quot;:&quot;211215105969782020&quot;,&quot;prodInstId&quot;:&quot;&quot;,&quot;spId&quot;:&quot;&quot;}
+
+10:51:11.453 response time in milliseconds: 799
+1 &lt; 200
+1 &lt; Server-Timing: intid;desc=84ab2efef4ee4005
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;resultCode&quot;:&quot;0&quot;,&quot;success&quot;:true,&quot;errorMessage&quot;:&quot;&quot;,&quot;checkId&quot;:&quot;220322105108282727&quot;,&quot;address&quot;:{&quot;areaCode&quot;:&quot;C13101&quot;,&quot;diggingFlag&quot;:&quot;N&quot;,&quot;houseNo&quot;:&quot;101010&quot;,&quot;towerNo&quot;:&quot;&quot;,&quot;floorNo&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;GENERAL MACKENNA&quot;,&quot;buildingType&quot;:&quot;CASA&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;longitude&quot;:&quot;&quot;,&quot;latitude&quot;:&quot;&quot;,&quot;addressId&quot;:&quot;211215105969782020&quot;,&quot;addressName&quot;:&quot;&quot;,&quot;areaName&quot;:&quot;SANTIAGO&quot;,&quot;addrGrade&quot;:&quot;HOUSE_NUMBER&quot;},&quot;curAccSchema&quot;:{&quot;accMode&quot;:null,&quot;maxDownloadBw&quot;:null,&quot;planDate&quot;:null,&quot;prodList&quot;:null},&quot;accSchemaList&quot;:[{&quot;accMode&quot;:&quot;EPL&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:null},{&quot;accMode&quot;:&quot;FTTH&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:null},{&quot;accMode&quot;:&quot;GPON&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:[{&quot;prodSpecCode&quot;:&quot;HSI_IPOE&quot;,&quot;prodSpecId&quot;:&quot;C200115114779791&quot;,&quot;prodSpecName&quot;:&quot;High Speed Internet (IPoE)&quot;,&quot;prodSpecType&quot;:&quot;&quot;,&quot;relaProdSpec&quot;:&quot;&quot;},{&quot;prodSpecCode&quot;:&quot;CFS_PON_ACC&quot;,&quot;prodSpecId&quot;:&quot;C200115111079696&quot;,&quot;prodSpecName&quot;:&quot;PON Access&quot;,&quot;prodSpecType&quot;:&quot;CA&quot;,&quot;relaProdSpec&quot;:&quot;HSI_IPOE&quot;}]}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.18">
+      <div class="step-ref passed">18</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.19">
+      <div class="step-ref passed">19</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.success == true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.20">
+      <div class="step-ref passed">20</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.checkId == &#39;#present&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2:22]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2:22]</span>
+                <span class="scenario-name">Validacion tipo dato response con estatus code 200</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>816</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[2:22]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[2:22]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.6">10:51:10.656 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.23">
+      <div class="step-ref passed">23</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.23">{
+&quot;addrId&quot;: &quot;211215105969782020&quot;,
+&quot;prodInstId&quot;: &quot;&quot;,
+&quot;spId&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.31">
+      <div class="step-ref passed">31</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">814</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.31">10:51:10.659 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 57
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;addrId&quot;:&quot;211215105969782020&quot;,&quot;prodInstId&quot;:&quot;&quot;,&quot;spId&quot;:&quot;&quot;}
+
+10:51:11.471 response time in milliseconds: 812
+1 &lt; 200
+1 &lt; Server-Timing: intid;desc=bd2be5c53cc4d2a5
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;resultCode&quot;:&quot;0&quot;,&quot;success&quot;:true,&quot;errorMessage&quot;:&quot;&quot;,&quot;checkId&quot;:&quot;220322105108282726&quot;,&quot;address&quot;:{&quot;areaCode&quot;:&quot;C13101&quot;,&quot;diggingFlag&quot;:&quot;N&quot;,&quot;houseNo&quot;:&quot;101010&quot;,&quot;towerNo&quot;:&quot;&quot;,&quot;floorNo&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;GENERAL MACKENNA&quot;,&quot;buildingType&quot;:&quot;CASA&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;longitude&quot;:&quot;&quot;,&quot;latitude&quot;:&quot;&quot;,&quot;addressId&quot;:&quot;211215105969782020&quot;,&quot;addressName&quot;:&quot;&quot;,&quot;areaName&quot;:&quot;SANTIAGO&quot;,&quot;addrGrade&quot;:&quot;HOUSE_NUMBER&quot;},&quot;curAccSchema&quot;:{&quot;accMode&quot;:null,&quot;maxDownloadBw&quot;:null,&quot;planDate&quot;:null,&quot;prodList&quot;:null},&quot;accSchemaList&quot;:[{&quot;accMode&quot;:&quot;EPL&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:null},{&quot;accMode&quot;:&quot;FTTH&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:null},{&quot;accMode&quot;:&quot;GPON&quot;,&quot;maxDownloadBw&quot;:&quot;2560&quot;,&quot;planDate&quot;:&quot;&quot;,&quot;prodList&quot;:[{&quot;prodSpecCode&quot;:&quot;HSI_IPOE&quot;,&quot;prodSpecId&quot;:&quot;C200115114779791&quot;,&quot;prodSpecName&quot;:&quot;High Speed Internet (IPoE)&quot;,&quot;prodSpecType&quot;:&quot;&quot;,&quot;relaProdSpec&quot;:&quot;&quot;},{&quot;prodSpecCode&quot;:&quot;CFS_PON_ACC&quot;,&quot;prodSpecId&quot;:&quot;C200115111079696&quot;,&quot;prodSpecName&quot;:&quot;PON Access&quot;,&quot;prodSpecType&quot;:&quot;CA&quot;,&quot;relaProdSpec&quot;:&quot;HSI_IPOE&quot;}]}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.32">
+      <div class="step-ref passed">32</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.33">
+      <div class="step-ref passed">33</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>match response.address == &#39;#object&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.34">
+      <div class="step-ref passed">34</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>match response.curAccSchema == &#39;#object&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.35">
+      <div class="step-ref passed">35</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>match response.accSchemaList == &#39;#[]&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.36">
+      <div class="step-ref passed">36</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>match response ==</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.36">{
+&quot;resultCode&quot;: &#39;#string&#39;,
+&quot;success&quot;: &#39;#boolean&#39;,
+&quot;errorMessage&quot;: &#39;#string&#39;,
+&quot;checkId&quot;: &#39;#string&#39;,
+&quot;address&quot;: {
+    &quot;areaCode&quot;: &#39;#string&#39;,
+    &quot;diggingFlag&quot;: &#39;#string&#39;,
+    &quot;houseNo&quot;: &#39;#string&#39;,
+    &quot;towerNo&quot;: &#39;#string&#39;,
+    &quot;floorNo&quot;: &#39;#string&#39;,
+    &quot;streetName&quot;: &#39;#string&#39;,
+    &quot;buildingType&quot;: &#39;#string&#39;,
+    &quot;houseNoExt&quot;: &#39;#string&#39;,
+    &quot;longitude&quot;: &#39;#string&#39;,
+    &quot;latitude&quot;: &#39;#string&#39;,
+    &quot;addressId&quot;: &#39;#string&#39;,
+    &quot;addressName&quot;: &#39;#string&#39;,
+    &quot;areaName&quot;: &#39;#string&#39;,
+    &quot;addrGrade&quot;: &#39;#string&#39;
+},
+&quot;curAccSchema&quot;: {
+    &quot;accMode&quot;: &#39;#null&#39;,
+    &quot;maxDownloadBw&quot;: &#39;#null&#39;,
+    &quot;planDate&quot;: &#39;#null&#39;,
+    &quot;prodList&quot;: &#39;#null&#39;
+},
+&quot;accSchemaList&quot;: [
+    {
+        &quot;accMode&quot;: &#39;#string&#39;,
+        &quot;maxDownloadBw&quot;: &#39;#string&#39;,
+        &quot;planDate&quot;: &#39;#string&#39;,
+        &quot;prodList&quot;: &#39;#null&#39;
+    },
+    {
+        &quot;accMode&quot;: &#39;#string&#39;,
+        &quot;maxDownloadBw&quot;: &#39;#string&#39;,
+        &quot;planDate&quot;: &#39;#string&#39;,
+        &quot;prodList&quot;: &#39;#null&#39;
+    },
+    {
+        &quot;accMode&quot;: &#39;#string&#39;,
+        &quot;maxDownloadBw&quot;: &#39;#string&#39;,
+        &quot;planDate&quot;: &#39;#string&#39;,
+        &quot;prodList&quot;: [
+            {
+                &quot;prodSpecCode&quot;: &#39;#string&#39;,
+                &quot;prodSpecId&quot;: &#39;#string&#39;,
+                &quot;prodSpecName&quot;: &#39;#string&#39;,
+                &quot;prodSpecType&quot;: &#39;#string&#39;,
+                &quot;relaProdSpec&quot;: &#39;#string&#39;
+            },
+            {
+                &quot;prodSpecCode&quot;: &#39;#string&#39;,
+                &quot;prodSpecId&quot;: &#39;#string&#39;,
+                &quot;prodSpecName&quot;: &#39;#string&#39;,
+                &quot;prodSpecType&quot;: &#39;#string&#39;,
+                &quot;relaProdSpec&quot;: &#39;#string&#39;
+            }
+        ]
+}
+    ]
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3:103]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3:103]</span>
+                <span class="scenario-name">Validacion codigo 400 campo AddrId vacio</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>94</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[3:103]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[3:103]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.6">10:51:10.656 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.104">
+      <div class="step-ref passed">104</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.104">{
+&quot;addrId&quot;: &quot;&quot;,
+&quot;prodInstId&quot;: &quot;&quot;,
+&quot;spId&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.112">
+      <div class="step-ref passed">112</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">65</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.112">10:51:10.659 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/availabilityCheck
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 39
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;addrId&quot;:&quot;&quot;,&quot;prodInstId&quot;:&quot;&quot;,&quot;spId&quot;:&quot;&quot;}
+
+10:51:10.722 response time in milliseconds: 62
+1 &lt; 400
+1 &lt; Server-Timing: intid;desc=11b7c64ad79fe39d
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;codigoError&quot;:&quot;400&quot;,&quot;mensajeError&quot;:&quot;Atributos no validos&quot;,&quot;subErrors&quot;:[{&quot;field&quot;:&quot;addrId&quot;,&quot;message&quot;:&quot;size must be between 1 and 100&quot;,&quot;rejectedValue&quot;:&quot;&quot;},{&quot;field&quot;:&quot;addrId&quot;,&quot;message&quot;:&quot;El campo AddrId no debe ser nulo ni blanco&quot;,&quot;rejectedValue&quot;:&quot;&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.113">
+      <div class="step-ref passed">113</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.114">
+      <div class="step-ref passed">114</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..field == &quot;addrId&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">27</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.115">
+      <div class="step-ref passed">115</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def subErrors = response.subErrors</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

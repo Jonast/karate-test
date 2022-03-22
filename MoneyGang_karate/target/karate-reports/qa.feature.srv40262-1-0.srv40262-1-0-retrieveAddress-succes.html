@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <title>qa.feature.srv40262-1-0.srv40262-1-0-retrieveAddress-succes</title>  
+  </head>
+  <body>   
+    <div id="root-container">
+      <div id="leftnav">
+                
+        <div>
+  <div class="nav-logo">
+    <a href="karate-summary.html">
+      <img src="karate-logo.svg" alt="Karate"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">1</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>         
+  <div id="nav-date">
+    <div>2022-03-22 10:51:11 a. m.</div>
+  </div>        
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:7]"><span>[1:7]</span> <span>Validacion estatus code 200</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">qa/feature/srv40262-1-0/srv40262-1-0-retrieveAddress-succes.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">Test srv40262-1-0 - retrieveAddress</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:7]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:7]</span>
+                <span class="scenario-name">Validacion estatus code 200</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>93</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:7]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:7]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.188 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref passed">8</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.8">{
+    &quot;areaName&quot;: &quot;LAS CONDES&quot;,
+    &quot;streetName&quot;: &quot;Leonardo Da Vinci&quot;,
+    &quot;houseNo&quot;: &quot;7346&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.20">
+      <div class="step-ref passed">20</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">91</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.20">10:51:11.190 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 134
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;LAS CONDES&quot;,&quot;streetName&quot;:&quot;Leonardo Da Vinci&quot;,&quot;houseNo&quot;:&quot;7346&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.279 response time in milliseconds: 89
+1 &lt; 200
+1 &lt; Server-Timing: intid;desc=ca4b6b8405414fcb
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;resultCode&quot;:&quot;0&quot;,&quot;success&quot;:true,&quot;errorMessage&quot;:&quot;SUCCESS&quot;,&quot;totalCount&quot;:&quot;0&quot;,&quot;pageCount&quot;:&quot;0&quot;,&quot;addrs&quot;:[{&quot;areaCode&quot;:&quot;C13114&quot;,&quot;diggingFlag&quot;:&quot;&quot;,&quot;houseNo&quot;:&quot;7346&quot;,&quot;towerNo&quot;:&quot;&quot;,&quot;floorNo&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;Leonardo Da Vinci&quot;,&quot;buildingType&quot;:&quot;CASA&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;longitude&quot;:&quot;&quot;,&quot;latitude&quot;:&quot;&quot;,&quot;addressId&quot;:&quot;211214113269666540&quot;,&quot;addressName&quot;:&quot;&quot;,&quot;areaName&quot;:&quot;LAS CONDES&quot;,&quot;addrGrade&quot;:&quot;HOUSE_NUMBER&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.21">
+      <div class="step-ref passed">21</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.22">
+      <div class="step-ref passed">22</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.errorMessage == &quot;SUCCESS&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.23">
+      <div class="step-ref passed">23</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..areaCode == &#39;#notnull&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.24">
+      <div class="step-ref passed">24</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..addressId == &#39;#present&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

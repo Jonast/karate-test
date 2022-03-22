@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <title>qa.feature.srv40262-1-0.srv40262-1-0-retrieveAddress</title>  
+  </head>
+  <body>   
+    <div id="root-container">
+      <div id="leftnav">
+                
+        <div>
+  <div class="nav-logo">
+    <a href="karate-summary.html">
+      <img src="karate-logo.svg" alt="Karate"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">6</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>         
+  <div id="nav-date">
+    <div>2022-03-22 10:51:11 a. m.</div>
+  </div>        
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:7]"><span>[1:7]</span> <span>Validacion estatus code 200</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2:28]"><span>[2:28]</span> <span>Validacion tipo dato response con estatus code 200</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3:50]"><span>[3:50]</span> <span>validacion tipo dato response con estatus code 400</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4:73]"><span>[4:73]</span> <span>Validacion codigo 400 campo areaName vacio</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[5:90]"><span>[5:90]</span> <span>Validacion codigo 400 campo streetName vacio</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[6:107]"><span>[6:107]</span> <span>Validacion codigo 400 campo houseNo vacio</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">qa/feature/srv40262-1-0/srv40262-1-0-retrieveAddress.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">Test srv40262-1-0 - retrieveAddress</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:7]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:7]</span>
+                <span class="scenario-name">Validacion estatus code 200</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>113</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[1:7]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[1:7]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.241 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref passed">8</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.8">{
+    &quot;areaName&quot;: &quot;LAS CONDES&quot;,
+    &quot;streetName&quot;: &quot;Leonardo Da Vinci&quot;,
+    &quot;houseNo&quot;: &quot;7346&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.20">
+      <div class="step-ref passed">20</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">111</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.20">10:51:11.243 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 134
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;LAS CONDES&quot;,&quot;streetName&quot;:&quot;Leonardo Da Vinci&quot;,&quot;houseNo&quot;:&quot;7346&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.352 response time in milliseconds: 108
+1 &lt; 200
+1 &lt; Server-Timing: intid;desc=1a66b66d59574bd5
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;resultCode&quot;:&quot;0&quot;,&quot;success&quot;:true,&quot;errorMessage&quot;:&quot;SUCCESS&quot;,&quot;totalCount&quot;:&quot;0&quot;,&quot;pageCount&quot;:&quot;0&quot;,&quot;addrs&quot;:[{&quot;areaCode&quot;:&quot;C13114&quot;,&quot;diggingFlag&quot;:&quot;&quot;,&quot;houseNo&quot;:&quot;7346&quot;,&quot;towerNo&quot;:&quot;&quot;,&quot;floorNo&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;Leonardo Da Vinci&quot;,&quot;buildingType&quot;:&quot;CASA&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;longitude&quot;:&quot;&quot;,&quot;latitude&quot;:&quot;&quot;,&quot;addressId&quot;:&quot;211214113269666540&quot;,&quot;addressName&quot;:&quot;&quot;,&quot;areaName&quot;:&quot;LAS CONDES&quot;,&quot;addrGrade&quot;:&quot;HOUSE_NUMBER&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.21">
+      <div class="step-ref passed">21</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.22">
+      <div class="step-ref passed">22</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.errorMessage == &quot;SUCCESS&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.23">
+      <div class="step-ref passed">23</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..areaCode == &#39;#notnull&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.24">
+      <div class="step-ref passed">24</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..addressId == &#39;#present&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2:28]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2:28]</span>
+                <span class="scenario-name">Validacion tipo dato response con estatus code 200</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>67</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[2:28]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[2:28]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.284 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.29">
+      <div class="step-ref passed">29</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.29">{
+    &quot;areaName&quot;: &quot;SANTIAGO&quot;,
+    &quot;streetName&quot;: &quot;LAS ENCINAS&quot;,
+    &quot;houseNo&quot;: &quot;3298&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.41">
+      <div class="step-ref passed">41</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">64</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.41">10:51:11.286 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 126
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;SANTIAGO&quot;,&quot;streetName&quot;:&quot;LAS ENCINAS&quot;,&quot;houseNo&quot;:&quot;3298&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.349 response time in milliseconds: 62
+1 &lt; 200
+1 &lt; Server-Timing: intid;desc=94d9f6a020354fc7
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;resultCode&quot;:&quot;0&quot;,&quot;success&quot;:true,&quot;errorMessage&quot;:&quot;SUCCESS&quot;,&quot;totalCount&quot;:&quot;0&quot;,&quot;pageCount&quot;:&quot;0&quot;,&quot;addrs&quot;:[]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.42">
+      <div class="step-ref passed">42</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.43">
+      <div class="step-ref passed">43</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.resultCode == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.44">
+      <div class="step-ref passed">44</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.success == &#39;#boolean&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.45">
+      <div class="step-ref passed">45</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.errorMessage == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.46">
+      <div class="step-ref passed">46</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.totalCount == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.47">
+      <div class="step-ref passed">47</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.pageCount == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.48">
+      <div class="step-ref passed">48</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.addrs == &#39;#[]&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3:50]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3:50]</span>
+                <span class="scenario-name">validacion tipo dato response con estatus code 400</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>50</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[3:50]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[3:50]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.325 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.51">
+      <div class="step-ref passed">51</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.51">{
+    &quot;areaName&quot;: &quot;&quot;,
+    &quot;streetName&quot;: &quot;LAS ENCINAS&quot;,
+    &quot;houseNo&quot;: &quot;3298&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.63">
+      <div class="step-ref passed">63</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">46</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.63">10:51:11.327 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 118
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;LAS ENCINAS&quot;,&quot;houseNo&quot;:&quot;3298&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.371 response time in milliseconds: 44
+1 &lt; 400
+1 &lt; Server-Timing: intid;desc=0ce8868c4f5402eb
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;codigoError&quot;:&quot;400&quot;,&quot;mensajeError&quot;:&quot;Atributos no validos&quot;,&quot;subErrors&quot;:[{&quot;field&quot;:&quot;areaName&quot;,&quot;message&quot;:&quot;size must be between 1 and 100&quot;,&quot;rejectedValue&quot;:&quot;&quot;},{&quot;field&quot;:&quot;areaName&quot;,&quot;message&quot;:&quot;El campo AreaName no debe ser nulo ni blanco&quot;,&quot;rejectedValue&quot;:&quot;&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.64">
+      <div class="step-ref passed">64</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.65">
+      <div class="step-ref passed">65</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.codigoError == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.66">
+      <div class="step-ref passed">66</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.mensajeError == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.67">
+      <div class="step-ref passed">67</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.subErrors == &#39;#[]&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.68">
+      <div class="step-ref passed">68</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..field == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.69">
+      <div class="step-ref passed">69</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..message == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.70">
+      <div class="step-ref passed">70</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..rejectedValue == &#39;#string&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4:73]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4:73]</span>
+                <span class="scenario-name">Validacion codigo 400 campo areaName vacio</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>45</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4:73]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4:73]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.356 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.74">
+      <div class="step-ref passed">74</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.74">{
+    &quot;areaName&quot;: &quot;&quot;,
+    &quot;streetName&quot;: &quot;LAS ENCINAS&quot;,
+    &quot;houseNo&quot;: &quot;3298&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.86">
+      <div class="step-ref passed">86</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">43</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.86">10:51:11.359 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 118
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;&quot;,&quot;streetName&quot;:&quot;LAS ENCINAS&quot;,&quot;houseNo&quot;:&quot;3298&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.400 response time in milliseconds: 41
+1 &lt; 400
+1 &lt; Server-Timing: intid;desc=3068adc12e2fa713
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;codigoError&quot;:&quot;400&quot;,&quot;mensajeError&quot;:&quot;Atributos no validos&quot;,&quot;subErrors&quot;:[{&quot;field&quot;:&quot;areaName&quot;,&quot;message&quot;:&quot;El campo AreaName no debe ser nulo ni blanco&quot;,&quot;rejectedValue&quot;:&quot;&quot;},{&quot;field&quot;:&quot;areaName&quot;,&quot;message&quot;:&quot;size must be between 1 and 100&quot;,&quot;rejectedValue&quot;:&quot;&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.87">
+      <div class="step-ref passed">87</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..field == &quot;areaName&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.88">
+      <div class="step-ref passed">88</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[5:90]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[5:90]</span>
+                <span class="scenario-name">Validacion codigo 400 campo streetName vacio</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>37</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[5:90]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[5:90]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.359 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.91">
+      <div class="step-ref passed">91</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.91">{
+    &quot;areaName&quot;: &quot;SANTIAGO&quot;,
+    &quot;streetName&quot;: &quot;&quot;,
+    &quot;houseNo&quot;: &quot;3298&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.103">
+      <div class="step-ref passed">103</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">35</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.103">10:51:11.361 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 115
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;SANTIAGO&quot;,&quot;streetName&quot;:&quot;&quot;,&quot;houseNo&quot;:&quot;3298&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.394 response time in milliseconds: 33
+1 &lt; 400
+1 &lt; Server-Timing: intid;desc=1dcb9c2e521f7457
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;codigoError&quot;:&quot;400&quot;,&quot;mensajeError&quot;:&quot;Atributos no validos&quot;,&quot;subErrors&quot;:[{&quot;field&quot;:&quot;streetName&quot;,&quot;message&quot;:&quot;El campo StreetName no debe ser nulo ni blanco&quot;,&quot;rejectedValue&quot;:&quot;&quot;},{&quot;field&quot;:&quot;streetName&quot;,&quot;message&quot;:&quot;size must be between 1 and 100&quot;,&quot;rejectedValue&quot;:&quot;&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.104">
+      <div class="step-ref passed">104</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..field == &quot;streetName&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.105">
+      <div class="step-ref passed">105</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[6:107]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">testRun262</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[6:107]</span>
+                <span class="scenario-name">Validacion codigo 400 campo houseNo vacio</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>47</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[6:107]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[6:107]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>url &#39;http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.5">10:51:11.379 karate.env system property was: null 
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.108">
+      <div class="step-ref passed">108</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.108">{
+    &quot;areaName&quot;: &quot;SANTIAGO&quot;,
+    &quot;streetName&quot;: &quot;LAS ENCINAS&quot;,
+    &quot;houseNo&quot;: &quot;&quot;,
+    &quot;houseNoExt&quot;: &quot;&quot;,
+    &quot;pageFlag&quot;: &quot;&quot;,
+    &quot;pageSize&quot;: &quot;&quot;,
+    &quot;pageIndex&quot;: &quot;&quot;
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.120">
+      <div class="step-ref passed">120</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method Post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">44</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.120">10:51:11.383 request:
+1 &gt; POST http://fttx.wom.uat/ocp/resource/srv40262-1-0/rest/resourcePoolManagement/retrieveAddress
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 122
+1 &gt; Host: fttx.wom.uat
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/15.0.2)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;areaName&quot;:&quot;SANTIAGO&quot;,&quot;streetName&quot;:&quot;LAS ENCINAS&quot;,&quot;houseNo&quot;:&quot;&quot;,&quot;houseNoExt&quot;:&quot;&quot;,&quot;pageFlag&quot;:&quot;&quot;,&quot;pageSize&quot;:&quot;&quot;,&quot;pageIndex&quot;:&quot;&quot;}
+
+10:51:11.425 response time in milliseconds: 42
+1 &lt; 400
+1 &lt; Server-Timing: intid;desc=bba75c8fbef288b5
+1 &lt; Content-Type: application/json;charset=UTF-8
+1 &lt; Transfer-Encoding: chunked
+1 &lt; Date: Tue, 22 Mar 2022 13:51:11 GMT
+1 &lt; Set-Cookie: 25b97f8ce3c85c36f841327c183e18a0=f54b6d43a414ec437e47e20be66ba5eb; Domain=fttx.wom.uat
+{&quot;codigoError&quot;:&quot;400&quot;,&quot;mensajeError&quot;:&quot;Atributos no validos&quot;,&quot;subErrors&quot;:[{&quot;field&quot;:&quot;houseNo&quot;,&quot;message&quot;:&quot;El campo HouseNo no debe ser nulo ni blanco&quot;,&quot;rejectedValue&quot;:&quot;&quot;},{&quot;field&quot;:&quot;houseNo&quot;,&quot;message&quot;:&quot;size must be between 1 and 30&quot;,&quot;rejectedValue&quot;:&quot;&quot;}]}
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.121">
+      <div class="step-ref passed">121</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match each response..field == &quot;houseNo&quot;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.122">
+      <div class="step-ref passed">122</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

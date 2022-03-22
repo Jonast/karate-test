@@ -1,0 +1,1650 @@
+swagger: "2.0"
+info:
+  title: iWhaleCloud OSS NBI
+  x-target-audience: OLOs and POST Technologies systems that can create orders.
+  description: "OSS provide the API to capture the Customer Order Info from ACBIS for business scenario, such as New Connection, Termination, Change Service number, Modify VAS, Change Telephone Number, etc. It includes the Customer Order No., Product Order Info, Product info, Product Attributes and related Products."
+  contact:
+    name: Wholesales API Support
+    email: support.api.wholesales@iwhalecloud.com
+  version: "0.4"
+host: "oss.nbi.interface"
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /orderAccept/custOrder/v1:
+    post:
+      tags:
+        - "OSS CustOrder"
+      summary: "Add a new customer Order"
+      description: ""
+      operationId: "createCustOrder"
+      deprecated: false
+      parameters:
+        - name: "custOrder"
+          in: "body"
+          description: "Add a new customer Order"
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerOrder"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+    delete:
+      tags:
+      - "OSS CustOrder"
+      summary: "Cancel an customer Order"
+      description: ""
+      operationId: "cancelCustOrder"
+      parameters:
+        - name: "custOrderNo"
+          in: "query"
+          description: "Customer Order"
+          required: false
+          type: "string"
+        - name: "cancelledReason"
+          in: "query"
+          description: "Cancelled Reason"
+          required: true
+          type: "string"
+        - name: "prodOrderNo"
+          in: "query"
+          description: "Product Order No."
+          required: false
+          type: "string"
+      responses:
+        204:
+          description: "Delete data successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /orderAccept/custOrder/revision/v1:
+    post:
+      tags:
+        - "OSS CustOrder"
+      summary: "OSS modify order according to in-flight order information."
+      description: ""
+      operationId: "modifyCustOrder"
+      deprecated: false
+      parameters:
+        - name: "custOrder"
+          in: "body"
+          description: "Modify order according to in-flight order information"
+          required: true
+          schema:
+            $ref: "#/definitions/CustomerOrder"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /orderAccept/custOrder/cancellationCheck/v1/{custOrderNo}:
+    get:
+      tags:
+        - "OSS CustOrder"
+      summary: "Check Order Whether Can be Cancelled"
+      description: ""
+      operationId: "cancellationCheck"
+      deprecated: false
+      parameters:
+        - name: "custOrderNo"
+          in: "path"
+          description: "Customer Order"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/CustomerOrderCheckResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/CustomerOrderCheckResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /orderAccept/custOrder/revisionCheck/v1/{custOrderNo}:
+    get:
+      tags:
+        - "OSS CustOrder"
+      summary: "BSS call OSS this interface to check whether the customer order can be revised, and which content can be revised."
+      description: ""
+      operationId: "revisionCheck"
+      deprecated: false
+      parameters:
+        - name: "custOrderNo"
+          in: "path"
+          description: "Customer Order"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/CustomerOrderRevisionCheckResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/CustomerOrderRevisionCheckResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  
+  /orderAccept/apptCapability/v1:
+    get:
+      tags:
+        - "OSS Appointment Capability"
+      summary: "Query Appointment Capability."
+      description: ""
+      operationId: "apptCapability"
+      deprecated: false
+      parameters:
+        - name: "addressId"
+          in: "query"
+          description: "Address ID"
+          required: true
+          type: "string"
+        - name: "startDate"
+          in: "query"
+          description: "Format: YYYY-MM-DD,  Appointment Start Date"
+          required: true
+          type: "string"
+        - name: "accessMode"
+          in: "query"
+          description: "Access Mode"
+          required: true
+          type: "string"
+        - name: "apptProdList"
+          in: "query"
+          description: "Need appointment product, can support multiple products and events, if there is more than one, use semicolon (;), for example: IPTV:NEW;VOIP:NEW"
+          required: true
+          type: "string"
+        - name: "appointmentNo"
+          in: "query"
+          description: "Appointment No."
+          required: false
+          type: "string"
+        - name: "custGrade"
+          in: "query"
+          description: "Customer Grade"
+          required: false
+          type: "string"
+        - name: "assistantRequired"
+          in: "query"
+          description: "True/False"
+          required: false
+          type: "string"
+        - name: "numberOfDays"
+          in: "query"
+          description: "The query days Base On Appointment Start Date"
+          required: false
+          type: "string"
+        - name: "systemId"
+          in: "query"
+          description: "System Id"
+          required: false
+          type: "string"
+        - name: "toTeam"
+          in: "query"
+          description: "Y/N, If appoint to team,the value of the parameter is Y"
+          required: false
+          type: "string"
+          enum:
+          - "Y"
+          - "N"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/QueryAppointmentResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/QueryAppointmentResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+    post:
+      tags:
+        - "OSS Appointment Capability"
+      summary: "Appointment Capability Reservation."
+      description: ""
+      operationId: "appointmentCapability"
+      deprecated: false
+      parameters:
+        - name: "addressId"
+          in: "query"
+          description: "Address ID"
+          required: true
+          type: "string"
+        - name: "appointmentDate"
+          in: "query"
+          description: "Format: YYYY-MM-DD,  Appointment Start Date"
+          required: true
+          type: "string"
+        - name: "timeslot"
+          in: "query"
+          description: "Format: 10:00-12:00, Timeslot"
+          required: true
+          type: "string"
+        - name: "taskType"
+          in: "query"
+          description: "Task Type, it is feedback by OSS in API “Query Appointment Capacity” "
+          required: true
+          type: "string"
+        - name: "appointmentNo"
+          in: "query"
+          description: "Appointment No."
+          required: false
+          type: "string"
+        - name: "teamId"
+          in: "query"
+          description: "Team ID."
+          required: false
+          type: "string"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/ApptointmentReservationResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/ApptointmentReservationResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /orderAccept/apptCapability/v1/{appointmentNo}:
+    delete:
+      tags:
+        - "OSS Appointment Capability"
+      summary: "Release Appointment Capability Reservation."
+      description: ""
+      operationId: "releaseApptCapability"
+      deprecated: false
+      parameters:
+        - name: "appointmentNo"
+          in: "path"
+          description: "Appointment No"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+          
+  /ra/feasibility/feasibilityCheck/v1:
+    post:
+      tags:
+        - "OSS Resource"
+      summary: "During in the order entry in BSS, based on the indicated address to check the feasibility for service access"
+      description: ""
+      operationId: "feasibilityCheck"
+      deprecated: false
+      parameters:
+        - name: "addrId"
+          in: "query"
+          description: "Address Id"
+          required: true
+          type: "string"
+        - name: "prodInstId"
+          in: "query"
+          description: "Produce Instance Id."
+          required: false
+          type: "string"
+        - name: "rspId"
+          in: "query"
+          description: "RSP Id"
+          required: false
+          type: "string"
+      responses:
+        200:
+          description: "Server returns user requested data successfully, this operation is idempotent."
+          schema:
+            $ref: '#/definitions/FeasibilityCheckResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/FeasibilityCheckResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, this operation is idempotent, is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server, this operation is idempotent."
+        406:
+          description: "User requested format is unavailable (For example, user request JSON format, but only XML format)."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /im/feasibility/reserveResource/v1:
+    post:
+      tags:
+        - "OSS Resource"
+      summary: "OSS will reserve the CTO port associated with address ID for WOM."
+      description: ""
+      operationId: "reserveResource"
+      deprecated: false
+      parameters:
+        - name: "addressId"
+          in: "query"
+          description: "Address ID of customer installation address."
+          required: true
+          type: "string"
+        - name: "prodList"
+          in: "query"
+          description: "Need product, can support multiple products and events, if there is more than one, use semicolon (;), for example: {HSI_IPOE:NEW;VOIP:NEW}."
+          required: true
+          type: "string"
+        - name: "accMode"
+          in: "query"
+          description: "Access Mode, Option: GPON."
+          required: true
+          type: "string"
+        - name: "prodInstId"
+          in: "query"
+          description: "Produce Instance ID."
+          required: false
+          type: "string"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/ReservationResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/ReservationResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /im/feasibility/unReserveResource/v1:
+    post:
+      tags:
+        - "OSS Resource"
+      summary: "OSS releases resource reserved for WOM."
+      description: ""
+      operationId: "unReserveResource"
+      deprecated: false
+      parameters:
+        - name: "resReserveId"
+          in: "query"
+          description: "Resource Reserve ID"
+          required: true
+          type: "string"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  
+  /im/address/retrieveAddressesbyAttr/v1:
+    post:
+      tags:
+        - "OSS Resource"
+      summary: "Based on the attributes of address to query the address info. The attributes include Post Code, building No. and House No."
+      description: ""
+      operationId: "retrieveAddressesbyAttr"
+      deprecated: false
+      parameters:
+        - name: "areaName"
+          in: "query"
+          description: "Comune Name"
+          required: true
+          type: "string"
+        - name: "streetName"
+          in: "query"
+          description: "Street name"
+          required: false
+          type: "string"
+        - name: "houseNo"
+          in: "query"
+          description: "The House No"
+          required: false
+          type: "string"
+        - name: "houseNoExt"
+          in: "query"
+          description: "The extended House No. e.g. room no—apartment No"
+          required: false
+          type: "string"
+        - name: "pageFlag"
+          in: "query"
+          description: "To separate as multiple pages. Y: Yes,N: No, If pageFlag = N, maximum 10 address will be returned."
+          required: false
+          type: "string"
+          enum:
+          - "Y"
+          - "N"
+        - name: "pageSize"
+          in: "query"
+          description: "The count of records per page."
+          required: false
+          type: "string"
+        - name: "pageIndex"
+          in: "query"
+          description: "The current page No"
+          required: false
+          type: "string"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/RetrieveAddressesbyAttrResult'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/RetrieveAddressesbyAttrResult'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+          
+  /bss/custOrder/complete/v1:
+    post:
+      tags:
+        - "OSS Notifications"
+      summary: "Complete BSS product order"
+      description: ""
+      operationId: "completeCustOrder"
+      deprecated: false
+      parameters:
+        - name: "prodOrder"
+          in: "body"
+          description: "Completed Product Order"
+          required: true
+          schema:
+            $ref: "#/definitions/CompleteProductOrder"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /bss/custOrder/cancel/v1:
+    post:
+      tags:
+        - "OSS Notifications"
+      summary: "Cancel BSS product order"
+      description: ""
+      operationId: "bssCancelCustOrder"
+      deprecated: false
+      parameters:
+        - name: "prodOrder"
+          in: "body"
+          description: "Cancel Product Order"
+          required: true
+          schema:
+            $ref: "#/definitions/CancelProductOrder"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  /bss/custOrder/cancelComplete/v1:
+    post:
+      tags:
+        - "OSS Notifications"
+      summary: "OSS cancel in-flight order complete"
+      description: ""
+      operationId: "cancelCompleteCustOrder"
+      deprecated: false
+      parameters:
+        - name: "prodOrder"
+          in: "body"
+          description: "Cancel Completed Product Order"
+          required: true
+          schema:
+            $ref: "#/definitions/CancelledProductOrder"
+      responses:
+        201:
+          description: "Data is created or updated successfully."
+          schema:
+            $ref: '#/definitions/Result'
+        202:
+          description: "Indicates one request is put into background queue (asynchronous task)."
+          schema:
+            $ref: '#/definitions/Result'
+        400:
+          description: "User request has error, there is no creating or modifying data operation in server, it is usually used in parameter validation."
+        401:
+          description: "Unauthorized user, is usually happened when not login. If there is still no privilege after validation, it should be 403 (difference between authentication and authorization)."
+        404:
+          description: "User requested record is not exist, there is no operation in server."
+        422:
+          description: "When create an object, occur a validation error."
+        500:
+          description: "Server has error, user can't judge request is successful or not."
+  
+          
+definitions:
+  Address:
+    type: "object"
+    required:
+    - "areaCode"
+    - "streetName"
+    - "houseNo"
+    properties:
+      areaCode:
+        type: "string"
+        description: "Comune Code."
+      diggingFlag:
+        type: "string"
+        description: "The digging is required or not.Value: Y/N"
+        enum:
+        - "Y"
+        - "N"
+      houseNo:
+        type: "string"
+        description: "House Number or apartment Number"
+      towerNo:
+        type: "string"
+        description: "Tower number for building or house in community"
+      floorNo:
+        type: "string"
+        description: "Floor number of building"  
+      streetName:
+        type: "string"
+        description: "Street Name"
+      buildingType:
+        type: "string"
+        description: "Building Type, Option:CASA/EDIFICIO."
+      houseNoExt:
+        type: "string"
+        description: "House Number Extension"
+      longitude:
+        type: "string"
+        description: "Longitude"
+      latitude:
+        type: "string"
+        description: "Latitude"
+      addressId:
+        type: "string"
+        description: "Address Id. The value is SGGL SiteID."
+      addressName:
+        type: "string"
+        description: "Address Name"
+      areaName:
+        type: "string"
+        description: "Area Name"
+      addrGrade:
+        type: "string"
+        description: "Address Grade"
+  FeasibilityCheckResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "success"
+    - "checkId"
+    - "address"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      success:
+        type: "boolean"
+        description: "The flag of API Calling is successful or not. true: Success,false: Failure"
+      errorMessage:
+        type: "string"
+        description: "The error message description. "
+      checkId:
+        type: "string"
+        description: "The unique Check ID for one feasibility check. In some project, based on the “Check ID” to assign the reserved network resource for one customer service if the “Check ID” is included in the Customer Order."
+      address:
+        description: "The address info."
+        $ref: "#/definitions/Address"
+      curAccSchema:
+        type: "array"
+        description: "The current Access Schema."
+        items:
+          $ref: "#/definitions/AccSchema"
+      accSchemaList:
+        type: "array"
+        description: "The selectable Access Schema."
+        items:
+          $ref: "#/definitions/AccSchema"
+  AccSchema:
+    type: "object"
+    required:
+    - "accMode"
+    - "maxDownloadBw"
+    - "prodList"
+    properties:
+      accMode:
+        type: "string"
+        description: "Access Mode"
+      maxDownloadBw:
+        type: "string"
+        description: "Max Download speed"
+      planDate:
+        type: "string"
+        description: "Plan date of Resource ready, Format: YYYY-MM-DD"
+        format: "date"
+      prodList:
+        type: "array"
+        description: "The supported product specification list."
+        items:
+          $ref: "#/definitions/ProdSpec"
+  ProdSpec:
+    type: "object"
+    required:
+    - "prodSpecCode"
+    - "prodSpecName"
+    - "prodSpecType"
+    - "relaProdSpec"
+    properties:
+      prodSpecCode:
+        type: "string"
+        description: "Product Specification Code"
+      prodSpecId:
+        type: "string"
+        description: "Product Specification Id."
+      prodSpecName:
+        type: "string"
+        description: "Product Specification Name"
+      prodSpecType:
+        type: "string"
+        description: "Product Specification Type"
+      relaProdSpec:
+        type: "string"
+        description: "Rela Product Specification"
+
+  CustomerOrder:
+    type: "object"
+    required:
+    - "rspId"
+    - "createDate"
+    - "custOrdNo"
+    - "customer"
+    - "productOrderList"
+    properties:
+      rspId:
+        type: "string"
+        description: "Retail Service Provider ID. If there is no."
+      systemId:
+        type: "string"
+        description: "Acceptance System ID."
+      custOrdNo:
+        type: "string"
+        description: "OSS Customer Order Number which is generated by OSS after customer order creation."
+      createDate:
+        type: "string"
+        format: "date-time"
+        description: "Create Date (Format: yyyy-MM-dd HH:mi:ss)"
+      submitOrgName:
+        type: "string"
+        description: "The department of submitted order"
+      submitStaffCode:
+        type: "string"
+        description: "Staff Code of submitted order"
+      submitStaffName:
+        type: "string"
+        description: "Staff Name of submitted order"
+      prequalId:
+        type: "string"
+        description: "Feasibility checking ID"
+      customer:
+        $ref: "#/definitions/Customer"
+        description: "Customer"
+      certificate:
+        type: "array"
+        description: "Certificate, certificate data type"
+        items:
+          $ref: "#/definitions/Certificate"
+      productOrderList:
+        type: "array"
+        minItems: 1
+        uniqueItems: True
+        description: "Product Order List"
+        items:
+          $ref: "#/definitions/ProductOrder"    
+  Customer:
+    type: "object"
+    required:
+    - "custCode"
+    - "custName"
+    - "custType"
+    properties:
+      custId:
+        type: "string"
+        description: "Customer ID, it is the unique ID of customer."
+      custCode:
+        type: "string"
+        description: "Customer Code"
+      custName:
+        type: "string"
+        description: "Customer Name"
+      salution:
+        type: "string"
+        description: "Customer Salution"
+      firstName:
+        type: "string"
+        description: "Customer First Name"
+      middleName:
+        type: "string"
+        description: "Customer Middle Name"
+      lastName:
+        type: "string"
+        description: "Customer Last Name"
+      initialName:
+        type: "string"
+        description: "Customer Nick Name"
+      nickName:
+        type: "string"
+        description: "Customer Nick Name"
+      custType:
+        type: "string"
+        description: "Customer Type, values are: A: Individual Customer;B: Corporate Customer;"
+        enum:
+        - "A"
+        - "B"
+      addressDetails:
+        type: "string"
+        description: "Customer Address Details"
+      contact:
+        type: "array"
+        description: "Contact.The contactRole should default value CC C Customer Contact"
+        items:
+          $ref: "#/definitions/Contact"
+  Certificate:
+    type: "object"
+    required:
+    - "certType"
+    - "certNo"
+    properties:
+      certType:
+        type: "string"
+        description: "Certificate Type"
+      certNo:
+        type: "string"
+        description: "Certificate Number"
+  ProductOrder:
+    type: "object"
+    required:
+    - "prodEventCode"
+    - "product"
+    - "operationType"
+    - "rfsDate"
+    - "prodOrderNo"
+    properties:
+      operationType:
+        type: "string"
+        description: "Operation Type, value:A---Add a new product order;M---Modify a product order;X---Keep, no change for the product order.D---Cancel a product order.The cancelled product order cannot be re-added. The modified product order (operationType = M) should include the all latest full info, and the sub product info should be contained event if there is no change."
+        enum:
+        - "A"
+        - "D"
+        - "M"
+        - "X"
+      prodOrderNo:
+        type: "string"
+        description: "Order Number"
+      prodEventCode:
+        type: "string"
+        description: "Product Event Code, Need BSS confirmed and mapping to OSS internal product specification code"
+      product:
+        description: "Product, product data type"
+        $ref: "#/definitions/Product"
+      relaProdOrderList:
+        type: "array"
+        description: "Relation Product Order"
+        items:
+          $ref: "#/definitions/RelaProdOrder"
+      relaProdList:
+        type: "array"
+        minItems: 0
+        uniqueItems: True
+        description: "Relation Product"
+        items:
+          $ref: "#/definitions/RelaProduct"
+      appointList:
+        type: "array"
+        description: "Appointed Time"
+        items:
+          $ref: "#/definitions/AppointmentTime"
+      appointList2:
+        type: "array"
+        description: "Store termination appointment time only when relocation"
+        items:
+          $ref: "#/definitions/AppointmentTime"
+      custRfsDate:
+        type: "string"
+        format: "date"
+        description: "Customer Wish Date,Customer expected fulfilment time when order the first time,(Format: yyyy-MM-dd hh:mi:ss)"
+      rfsDate:
+        type: "string"
+        format: "date"
+        description: "Wish Date,Customer expected fulfilment time, default value is CUST_RFS_DATE. But when revision or OSS will modify this time.(Format: yyyy-MM-dd hh:mi:ss)"
+      custRfsDate2:
+        type: "string"
+        format: "date-time"
+        description: "Store termination Cust RFS Date only when relocation."
+      rfsDate2:
+        type: "string"
+        format: "date-time"
+        description: "Store termination RFS Date only when relocation"
+      comments:
+        type: "string"
+        description: "Comments"
+      surveyOrdNo:
+        type: "string"
+        description: "Survey Order Number"
+      resReserveId:
+        type: "string"
+        description: "Resource Reserve ID"
+      ordAttrList:
+        type: "array"
+        description: "Order Attribute List"
+        items:
+          $ref: "#/definitions/OrderAttribute"
+          
+  AppointmentTime:
+    type: "object"
+    properties:
+      appointmentDate:
+        type: "string"
+        format: "date"
+        description: "Appointed Date, Format: yyyy-mm-dd"
+      timeslot:
+        type: "string"
+        description: "Appointed Time Slot, e.g. 09:00-11:00"
+      appointmentNo:
+        type: "string"
+        description: "Appointment Number"
+      teamId:
+        type: "string"
+        description: "Team Id."
+      teamName:
+        type: "string"
+        description: "Team Name"
+      fieldEngineerId:
+        type: "string"
+        description: "User Id"
+      fieldEngineerName:
+        type: "string"
+        description: "User Name"
+  Product:
+    type: "object"
+    required:
+    - "serviceNo"
+    - "prodInstId"
+    - "prodSpecCode"
+    - "accessMode"
+    properties:
+      areaCode:
+        type: "string"
+        description: "Area Code"
+      serviceGrade:
+        type: "string"
+        description: "Service Grade"
+      serviceNo:
+        type: "string"
+        description: "The Service Number for one product instance. In case voice service, it is theTelephone Number.In case other service, it can be optional. "
+      oldServiceNo:
+        type: "string"
+        description: "The old Telephone Number of voice service. It is only used for Change Telephone Number case."
+      iccid:
+        type: "string"
+        description: "The ICCID of SIM Card, it only used for mobile service. "
+      imsi:
+        type: "string"
+        description: "The IMSI of SIM Card, it only used for mobile service."
+      servicePassword:
+        type: "string"
+        format: "password"
+        description: "Service Password,AES encryption"
+      prodInstId:
+        type: "string"
+        description: "Product Instance ID, it is the unique ID of product instance. It can be null when the front-end system submits the Create Customer Order request to OSS, after the order created successful, OSS will generate the global and unique product instance id for each product instance, and the generated global prodInstId will be returned to the front-end system synchronously."
+      accessMode:
+        type: "string"
+        description: "Access Mode, it is returned by OSS during the Feasibility Checking. "
+      prodSpecCode:
+        type: "string"
+        description: "Product Specification Code, it should be mapped to OSS product specification code in service catalogue management. "
+      bundleSpecCode:
+        type: "string"
+        description: "Bundle specification Code"
+      bundleInstId:
+        type: "string"
+        description: "Bundle Instance ID"
+      bundleInstName:
+        type: "string"
+        description: "Bundle Instance Name"
+      addressDetails:
+        type: "string"
+        description: "Installation Address Details,It is used for New Connection"
+      longitude:
+        type: "string"
+        description: "Longitude of installation address"
+      latitude:
+        type: "string"
+        description: "latitude of installation address"  
+      addressId:
+        type: "string"
+        description: "Installation Address ID.It is required for New Connection"
+      deliveryAddress:
+        description: "Delivery Address"
+        $ref: "#/definitions/DeliveryAddress"
+      deliveryAddress2:
+        $ref: "#/definitions/DeliveryAddress"
+        description: "Store termination delivery address only when relocation."
+      deliveryContact:
+        $ref: "#/definitions/Contact"
+        description: "Delivery Contact.The contactRole should default value DC C Delivery Contact"
+      deliveryContact2:
+        $ref: "#/definitions/Contact"
+        description: "Store termination delivery contact only when relocation.The contactRole should default value DC C Delivery Contact"
+      contact:
+        $ref: "#/definitions/Contact"
+        description: "Contact.The contactRole should default value IC C Installation Contact"
+      contact2:
+        $ref: "#/definitions/Contact"
+        description: "Store termination contact only when relocation.The contactRole should default value IC C Installation Contact"
+      prodAttrList:
+        type: "array"
+        minItems: 0
+        uniqueItems: True
+        description: "Product Attribute List, product attribute list data type"
+        xml:
+          name: "prodAttr"
+          wrapped: true
+        items:
+          $ref: "#/definitions/ProdAttribute"
+      subProdList:  
+        type: "array"
+        minItems: 0
+        uniqueItems: True
+        description: "Sub Product List, value-added product list data type"
+        items:
+          $ref: "#/definitions/SubProduct"
+
+  DeliveryAddress:
+    type: "object"
+    required:
+    - "postCode"
+    - "houseNo"
+    properties:
+      postCode:
+        type: "string"
+        description: "Postal Code"
+      houseNo:
+        type: "string"
+        description: "House Number"
+      buildingNo:
+        type: "string"
+        description: "Building No"
+      houseNoExt:
+        type: "string"
+        description: "House Number Extension"
+      streetName:
+        type: "string"
+        description: "Street Name"
+      cityCode:
+        type: "string"
+        description: "City Code"        
+  Contact:
+    type: "object"
+    properties:
+      salution:
+        type: "string"
+        description: "Primary Salution"
+        enum:
+        - "Mr"
+        - "Mrs"
+        - "Miss"
+        - "NA"
+      firstName:
+        type: "string"
+        description: "Primary First Name"
+      middleName:
+        type: "string"
+        description: "Primary Middle Name"
+      lastName:
+        type: "string"
+        description: "Primary Last Name"
+      initialName:
+        type: "string"
+        description: "Primary Initial Name"
+      nickName:
+        type: "string"
+        description: "Primary Nick Name"
+      contactPhone:
+        type: "string"
+        description: "Primary Phone"
+      contactMobile:
+        type: "string"
+        description: "Primary Mobile"
+      contactEmail:
+        type: "string"
+        description: "Primary Email, if there is multiple Email Address for one contact, use the semicolon to separate them."
+        format: "email"
+      contactCountry:
+        type: "string"
+        description: "Primary Country"
+      contactCity:
+        type: "string"
+        description: "Primary City"
+      contactPostCode:
+        type: "string"
+        description: "Primary Post Code"
+      contactHouseNumber:
+        type: "string"
+        description: "Primary House Number"
+      contactHouseNumberExt:
+        type: "string"
+        description: "Primary House Number Ext."
+      salution2:
+        type: "string"
+        description: "The Second Salution"
+        enum:
+        - "Mr"
+        - "Mrs"
+        - "Miss"
+        - "NA"
+      firstName2:
+        type: "string"
+        description: "The Second First Name"
+      middleName2:
+        type: "string"
+        description: "The Second Middle Name"
+      lastName2:
+        type: "string"
+        description: "The Second Last Name"
+      initialName2:
+        type: "string"
+        description: "The Second Initial Name"
+      nickName2:
+        type: "string"
+        description: "The Second Nick Name"
+      contactPhone2:
+        type: "string"
+        description: "The Second Phone"
+      contactMobile2:
+        type: "string"
+        description: "The Second Mobile"
+      contactEmail2:
+        type: "string"
+        description: "The Second Email,, if there is multiple Email Address for one contact, use the semicolon to separate them."
+        format: "email"
+      contactCountry2:
+        type: "string"
+        description: "The Second Country"
+      contactCity2:
+        type: "string"
+        description: "The Second City"
+      contactPostCode2:
+        type: "string"
+        description: "The Second Post Code"
+      contactHouseNumber2:
+        type: "string"
+        description: "The Second House Number"
+      contactHouseNumberExt2:
+        type: "string"
+        description: "The Second House Number Ext."
+  ProdAttribute:
+    required:
+    - "attrCode"
+    - "attrName"
+    properties:
+      attrCode:
+        type: "string"
+        description: "Attribute Code"
+      attrName:
+        type: "string"
+        description: "Attribute Name"
+      value:
+        type: "string"
+        description: "Attribute Value"
+      valueDesc:
+        type: "string"
+        description: "Attribute Value Description"
+        
+  OrderAttribute:
+    required:
+    - "attrCode"
+    - "attrName"
+    properties:
+      attrCode:
+        type: "string"
+        description: "Attribute Code"
+      attrName:
+        type: "string"
+        description: "Attribute Name"
+      value:
+        type: "string"
+        description: "Attribute Value"
+      valueDesc:
+        type: "string"
+        description: "Attribute Value Description"
+  SubProduct:
+    required:
+    - "prodSpecCode"
+    - "operationType"
+    - "prodInstId"
+    properties:
+      prodInstId:
+        type: "string"
+        description: "The unique ID of Sub Product Instance which will be generated by OSS, it never be changed."
+      prodSpecCode:
+        type: "string"
+        description: "Sub Product Specification Code"
+      operationType:
+        type: "string"
+        description: "Operation Type, values are: A: Add,D: Delete,M: Modify."
+        enum:
+        - "A"
+        - "D"
+        - "M"
+      prodAttrList:
+        type: "array"
+        minItems: 0
+        uniqueItems: True
+        description: "subs Product Attribute List, dependent product attribute list data type"
+        items:
+          $ref: "#/definitions/ProdAttribute"
+  RelaProduct:
+    type: "object"
+    required:
+    - "relaType"
+    - "relaProdInstId"
+    properties:
+      relaType:
+        type: "string"
+        description: "Relation Type, values are: D: Depend on"
+        enum:
+        - "D"
+      relaProdInstId:
+        type: "string"
+        description: "Relation Product Instance ID."
+  RelaProdOrder:
+    type: "object"
+    required:
+    - "relaType"
+    - "relaProdOrderNo"
+    properties:
+      relaType:
+        type: "string"
+        description: "Relation Type, values are: D: Depend on"
+        enum:
+        - "D"
+      relaProdOrderNo:
+        type: "string"
+        description: "Relation Order Number"
+        
+  CancelProductOrder:
+    type: "object"
+    required:
+    - "prodOrderNo"
+    - "failReason"
+    properties:
+      prodOrderNo:
+        type: "string"
+        description: "Product Order Number"
+      failReason:
+        type: "string"
+        description: "Reason, refer to a description"
+  CancelledProductOrder:
+    type: "object"
+    required:
+    - "prodOrderNo"
+    properties:
+      prodOrderNo:
+        type: "string"
+        description: "Product Order Number."
+      completeDate:
+        type: "string"
+        format: "date-time"
+        description: "Finish Date of cancelled"
+      failCode:
+        type: "string"
+        description: "Exception Cancel Code."
+      failReason:
+        type: "string"
+        description: "Exception Cancel Reason."
+  
+  CustomerOrderCheckResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "cancelFlag"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+      cancelFlag:
+        type: "string"
+        description: "Check Can be Cancel/Revision Order from BSS to OSS C Output Parameters.YES: Allow Cancel;NO: Dont allow Cancel"
+        enum:
+        - "YES"
+        - "NO"
+  CustomerOrderRevisionCheckResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "revisionCode"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+      revisionCode:
+        type: "string"
+        description: "NA:Not allow Revision, R00:Can revise any content, R01:Can be modify wish date, R02:Can be modify appointment date,R03:Can be modify address.If there are multiple Revision Code, use comma (,) to put together."
+        enum:
+        - "NA"
+        - "R01"
+        - "R02"
+        - "R03"
+  
+  RetrieveAddressesbyAttrResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "success"
+    - "totalCount"
+    - "pageCount"
+    properties:
+      resultCode:
+        type: "string"
+        description: "The result code"
+      success:
+        type: "boolean"
+        description: "The flag of API Calling is successful or not. true: Success,false: Failure"
+        enum:
+          - "true"
+          - "false"
+      errorMessage:
+        type: "string"
+        description: "The error message description."
+      totalCount:
+        type: "string"
+        description: "The total count of records.If pageFlag = N, it will be 0."
+      pageCount:
+        type: "string"
+        description: "The total count of pages, If pageFlag = N, it will be 0."
+      Addrs:
+        type: "array"
+        minItems: 0
+        uniqueItems: True
+        description: "The list of address."
+        items:
+          $ref: "#/definitions/Address"
+          
+  CreateCustAddressesResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "success"
+    - "addressId"
+    properties:
+      resultCode:
+        type: "string"
+        description: "The result code"
+      success:
+        type: "boolean"
+        description: "The flag of API Calling is successful or not. true: Success,false: Failure"
+        enum:
+          - "true"
+          - "false"
+      errorMessage:
+        type: "string"
+        description: "The error message description."
+      addressId:
+        type: "string"
+        description: "The generated address ID."
+          
+  ApptointmentReservationResult:
+    type: "object"
+    required:
+    - "resultCode"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+      appointmentNo:
+        type: "string"
+        description: "Appointed No. It is required if call successfully, if call failed no need to return."
+  
+  CompleteCustOrderResult:
+    type: "object"
+    required:
+    - "resultCode"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+      custOrderNo:
+        type: "string"
+        description: "When BSS need to use OSS customer order number, return customer order number to BSS."
+  
+  CompleteProductOrder:
+    type: "object"
+    required:
+    - "prodOrderNo"
+    - "completeDate"
+    properties:
+      custOrderNo:
+        type: "string"
+        description: "Customer Order No."
+      prodOrderNo:
+        type: "string"
+        description: "Product Order Number."
+      completeDate:
+        type: "string"
+        format: "date-time"
+        description: "Finish Date"
+      prodInstId:
+        type: "string"
+        description: "Item attached product instance ID."
+      syncInfoList:
+        type: "array"
+        description: "Sync info."
+        items:
+          $ref: "#/definitions/SyncInfo"
+  SyncInfo:
+    type: "object"
+    required:
+    - "syncCodeType"
+    - "syncCode"
+    - "syncItemList"
+    properties:
+      syncCodeType:
+        type: "string"
+        description: "sync Item Code is Order Attribute or Product Attribute: OA:Order Attribute,PA:Product Attribute.."
+        enum:
+        - "OA"
+        - "PA"
+      syncCode:
+        type: "string"
+        description: "sync Code, value:SYN_RFSDATE:sync RFS Date,SYN_APPTDATE:sync Appointment Date,SYN_PRODATTR:sync Product Attribute,MSG_MODAPPTDATE:Notify Modify Appointment Date,MSG_INSTALLMATERIAL:sync Installation material,MSG_INPROGRESSCANCEL:Notify Cancellation Message about the In-progress order."
+        enum:
+        - "SYN_RFSDATE"
+        - "SYN_APPTDATE"
+        - "SYN_PRODATTR"
+        - "MSG_MODAPPTDATE"
+        - "MSG_INSTALLMATERIAL"
+        - "MSG_INPROGRESSCANCEL"
+      syncItemList:
+        type: "array"
+        description: "sync Item Data"
+        items:
+          $ref: "#/definitions/SyncItem"
+  SyncItem:
+    type: "object"
+    required:
+    - "code"
+    properties:
+      code:
+        type: "string"
+        description: "Item Code"
+        enum:
+        - "ONT_SN"
+      value:
+        type: "string"
+        description: "Item Value"
+      description:
+        type: "string"
+        description: "Item description"
+      prodInstId:
+        type: "string"
+        description: "it must where sync prod attr"
+      prodSpecCode:
+        type: "string"
+        description: "it must where sync prod attr"
+        
+  ReservationResult:
+    type: "object"
+    required:
+    - "resultCode"
+    - "resReserveId"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description" 
+      resReserveId:
+        type: "string"
+        description: "Resource Reserve ID"   
+
+  Result:
+    type: "object"
+    required:
+    - "resultCode"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+  QueryAppointmentResult:
+    type: "object"
+    required:
+    - "resultCode"
+    properties:
+      resultCode:
+        type: "string"
+        description: "Result Code, values are,0: Success"
+      resultDesc:
+        type: "string"
+        description: "Result Description"
+      appointmentList:
+        type: "array"
+        description: "Appointed timeslot List."
+        items:
+          $ref: "#/definitions/AppointmentList"
+  AppointmentList:
+    type: "object"
+    required:
+    - "appointmentDate"
+    - "timeslot"
+    - "taskType"
+    properties:
+      appointmentDate:
+        type: "string"
+        description: "Format: YYYY-MM-DD Appointment Date"
+      timeslot:
+        type: "string"
+        description: "Format: 10:00-12:00 Timeslot."
+      amount:
+        type: "string"
+        description: "Capability."
+      taskType:
+        type: "string"
+        description: "Task type."
+      teamId:
+        type: "string"
+        description: "Team ID."
+      teamName:
+        type: "string"
+        description: "Team Name."
+        
+securityDefinitions:
+  Basic Authentication:
+    type: "basic"
+    description: "Basic Authentication."
+security:
+  - Basic Authentication: []
+        
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        
+        
+        
+  
+  
+  
